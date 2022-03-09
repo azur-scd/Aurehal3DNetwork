@@ -1,0 +1,109 @@
+<html>
+
+<head>
+    <title>Aurehal3DNetwork</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- UIkit CSS -->
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename= 'lib/uikit-3.11.1/css/uikit.min.css')}}">
+     <!---Uikit JS--->
+     <script src="{{ url_for('static', filename= 'lib/uikit-3.11.1/js/uikit.min.js')}}"></script>
+     <script src="{{ url_for('static', filename= 'lib/uikit-3.11.1/js/uikit-icons.min.js')}}"></script>
+    <!--Plugin CSS Ion.RangeSlide-->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css" />
+</head>
+
+<body>
+    <nav class="uk-navbar-container uk-margin" uk-navbar>
+        <div class="uk-navbar-left">
+            <a class="uk-navbar-item uk-logo" href="#"><img
+                    src="https://bu.univ-cotedazur.fr/fr/contents/images/logo-bibliotheques-universite-cote-dazur"
+                    alt="uca logo" style="width:350px; height:50px;" /></a>
+            <ul class="uk-navbar-nav">
+                <li>
+                    <h3>3D Aurehal 3D Network</h3>
+                </li>
+            </ul>
+        </div>
+        <div class="uk-navbar-right">
+            <a class="uk-button uk-button-default" href="https://github.com/azur-scd/Aurehal3DNetwork" target="_blanck">View source code on Github</a>
+        </div>
+        </div>
+    </nav>
+    <div class="uk-container uk-container-expand">
+
+        <div class="uk-child-width-1-2 uk-grid-divider" uk-grid>
+            <div class="uk-card uk-card-default">
+                <div class="uk-card-body">
+                    <h5 class="uk-card-title">Filtrer par nombre de publications affiliées à chaque structure</h5>
+                    <input type="text" class="js-range-slider" name="publis_slider" value="" />
+                </div>
+                <div class="uk-card-footer">
+                    <h5><a class="uk-link-reset" href="">Voir les données</a></h5>
+                    <div class="uk-grid-small uk-child-width-auto" uk-grid>
+                        <div>
+                            <a class="uk-button uk-button-text nodes_url"
+                                href="{{ url_for('get_nodes', nbPublis=range) }}" target="_blanck">Noeuds</a>
+                        </div>
+                        <div>
+                            <a class="uk-button uk-button-text links_url"
+                                href="{{ url_for('get_edges', nbPublis=range) }}" target="_blanck">Liens</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <article class="uk-article">
+                    <h5><a class="uk-link-reset" href="">Quelques remarques</a></h5>
+                    <p class="uk-article-meta">Les données sont filtrées par défaut sur les structures localisées en
+                        France</p>
+                    <p class="uk-article-meta">La taille des noeuds du graphe ne représente pas l'importance des
+                        strcutures selon leur nombre de publications affiliées mais varie en fonction de leur
+                        emplacement topologique par rapport à la caméra</p>
+                    <p class="uk-article-meta">Seuls les labels des structures ayant le statut "institution" et
+                        "regroupinstitution" sont affichés en clair dans le graphe, il faut passer le curseur sur les
+                        autres noeuds pour voir leur libellé</p>
+                    <p class="uk-article-meta">La couleur des neouds représente le statut des strcutures : 
+                        <span class="uk-badge" style="background-color:DodgerBlue;">regroupinstitution</span> 
+                        <span class="uk-badge" style="background-color:mediumaquamarine;">institution</span> 
+                        <span class="uk-badge" style="background-color:orange;">regrouplaboratory</span> 
+                        <span class="uk-badge" style="background-color:chocolate;">laboratory</span> 
+                        <span class="uk-badge" style="background-color:Violet;">department</span> 
+                        <span class="uk-badge" style="background-color:silver;">researchteam</span></p>
+                    <p class="uk-article-meta">Pour manipuler le graphe 3D : zoom avant -arrière avec la molette de la souris, rotation avec clic gauche, translation avec clic droit</p>
+                </article>
+            </div>
+        </div>
+
+        <div class="uk-section uk-section-default uk-preserve-color">
+            <div id="graph"></div>
+        </div>
+    </div>
+    <footer class="uk-section uk-section-default uk-section-small">
+        <div class="uk-container">
+            <p class="uk-text-small uk-text-center">Contact : 
+                <a href="mailto:geraldine.geoffroy@univ-cotedazur.fr">geraldine.geoffroy@univ-cotedazur.fr</a>
+                | Built with
+                <a href="http://getuikit.com" target="_blank" data-uk-tooltip>
+                    <span data-uk-icon="uikit"></span>
+                </a>
+            </p>
+        </div>
+    </footer>
+     <!--3d-graph JS
+     <script type="text/javascript" src="https://unpkg.com/3d-force-graph@1.70.9/dist/3d-force-graph.min.js"></script>
+     <script src="https://unpkg.com/three@0.138.3/build/three.js"></script>
+     <script src="https://unpkg.com/three-spritetext@1.6.5/dist/three-spritetext.min.js"></script>-->
+     <script src="{{ url_for('static', filename= 'lib/3d-force-graph_1.70.9.min.js')}}"></script>
+     <script src="{{ url_for('static', filename= 'lib/three.min.js')}}"></script>
+     <script src="{{ url_for('static', filename= 'lib/three-spritetext_1.6.3.min.js')}}"></script>
+     <!--Jquery-->
+     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+     <!--Plugin JS Ion.RangeSlide-->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
+     <!--main.js-->
+    <script src="{{ url_for('static', filename= 'js/main.js')}}"></script>
+</body>
+
+</html>
