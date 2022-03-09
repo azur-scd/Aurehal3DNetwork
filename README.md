@@ -12,7 +12,7 @@ Toutes les données ainsi récupérées sont stockées dans le dossier static/da
 
 ## Démo
 
-Une instance de démo est déployée ici : [https://azurscd-aurehal-global-network.onrender.com/](https://azurscd-aurehal-global-network.onrender.com/)
+Une instance de démo est déployée ici : [https://azurscd-aurehal-global-network.onrender.com/](https://azurscd-aurehal-3d-network.onrender.com/)
 
 Le filtre de type range appliqué au nombre de publications concerne les publications affiliées "strictement" à chaque structure et non le nombre de publications cumulées de toutes les structures enfants (mais cette donnée a aussi été recueillie dans le fichier nodes.csv)
 
@@ -24,12 +24,12 @@ Selon le nombre de noeuds et de liens à afficher, le graphe peut parfois mettre
 
 1. Avec l'image pré-buildée
 
-Une image de ce repo est disponible sur le registre public Docker ici : [https://hub.docker.com/repository/docker/azurscd/aurehal-global-network](https://hub.docker.com/repository/docker/azurscd/aurehal-global-network)
+Une image de ce repo est disponible sur le registre public Docker ici : [https://hub.docker.com/repository/docker/azurscd/aurehal-3d-network](https://hub.docker.com/repository/docker/azurscd/aurehal-3d-network)
 
 Pour l'installer et lancer le container : 
 
 ```
-docker run --name YOUR_CONTAINER_NAME -d -p 5000:5000 azurscd/aurehal-global-network:latest
+docker run --name YOUR_CONTAINER_NAME -d -p 5000:5000 azurscd/aurehal-3d-network:latest
 
 ```
 
@@ -46,7 +46,7 @@ Lancer http://localhost:5000
 ## Installation en local
 
 ```
-git clone https://github.com/azur-scd/AurehalGlobalNetwork.git
+git clone https://github.com/azur-scd/Aurehal3DNetwork.git
 ```
 
 ### Créer un environnement virtuel et installer les dépendances dans ce virtualenv
