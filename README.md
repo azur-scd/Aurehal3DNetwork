@@ -6,7 +6,7 @@ Application de visualisation en graphe 3D de l'ensemble des structures du réfé
 
 ![aurehal-global-network](/assets/screenshot.png)
 
-Le moissonnage exhaustif de toutes les structures via des requêtes sur l'API Hal est effectué en amont de la visualisation, la méthodologie utilisée étant décrite dans le notebook qui accompagne ce repo.
+Le moissonnage exhaustif de toutes les structures via des requêtes sur l'API Hal est effectué en amont de la visualisation, la méthodologie utilisée étant décrite dans le [notebook](https://github.com/azur-scd/Aurehal3DNetwork/blob/main/static/data/harvest_methodo.ipynb) qui accompagne ce repo.
 
 Toutes les données ainsi récupérées sont stockées dans le dossier static/data avec le notebook, le fichier final nodes.csv servant de source pour les noeuds du graphe est dans static/data/nodes/ et celui pour les liens edges.csv dans static/data/edges/
 
