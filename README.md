@@ -12,7 +12,7 @@ Toutes les données ainsi récupérées sont stockées dans le dossier static/da
 
 ## Démo
 
-Une instance de démo est déployée ici : [https://azurscd-aurehal-global-network.onrender.com/](https://azurscd-aurehal-3d-network.onrender.com/)
+Une instance de démo est déployée ici : [http://azur-scd.com/apps/aurehal-3d-network](http://azur-scd.com/apps/aurehal-3d-network)
 
 Le filtre de type range appliqué au nombre de publications concerne les publications affiliées "strictement" à chaque structure et non le nombre de publications cumulées de toutes les structures enfants (mais cette donnée a aussi été recueillie dans le fichier nodes.csv)
 
